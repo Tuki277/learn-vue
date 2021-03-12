@@ -17,6 +17,7 @@
     />
     <ComponentFooter v-bind:titleFooter="title"/>
     <Demoref />
+    <DemoSlot />
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import ComponentHeader from './components/ComponentHeader'
 import ComponentFooter from './components/ComponentFooter'
 import ListUser from './components/ListUser'
 import Demoref from './components/DemoRef'
+import DemoSlot from './components/DemoSlot'
 
 export default {
   name: 'App',
@@ -46,7 +48,8 @@ export default {
     ComponentHeader,
     ComponentFooter,
     ListUser,
-    Demoref
+    Demoref,
+    DemoSlot
   },
   methods: {
     handleChangeTitle(data) {
@@ -65,6 +68,40 @@ export default {
       }
       console.log('app.vue ', data)
     }
+  },
+
+  // life cycle
+  beforeCreate() {
+    console.log('before create', this.title)
+  },
+
+  created () {
+    // use call api, call ajax
+    console.log('created', this.title)
+  },
+
+  beforeMount () {
+    console.log('before mount', this.title)
+  },
+
+  mounted () {
+    console.log('mounted', this.title)
+  },
+
+  beforeUpdate() {
+    console.log('before update', this.title)
+  },
+
+  updated() {
+    console.log('updated', this.title)
+  },
+
+  beforeDestroy() {
+    console.log('before destroy', this.title)
+  },
+
+  destroyed () {
+    console.log('destroyed', this.title)
   }
 }
 
